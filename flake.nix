@@ -1,8 +1,8 @@
 {
-  description = "Mkdocs PlantUML C4 Example Project Documentation";
+  description = "Stashsphere Documentation";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
   };
 
@@ -16,27 +16,12 @@
       ];
       perSystem = { config, pkgs, system, ... }:
         let
-          python3Packages = (pkgs.python3.override {
-            packageOverrides = pFinal: pPrev: {
-              mkdocs-with-pdf = pFinal.callPackage ./mkdocs-with-pdf.nix { };
-              plantuml-markdown = pPrev.plantuml-markdown.override {
-                plantuml = pkgs.plantuml-c4;
-              };
-            };
-          }).pkgs;
+          inherit (pkgs) python3Packages;
         in
         {
           packages = {
             default = config.packages.html;
-            html = python3Packages.callPackage ./build.nix { };
-            pdf = config.packages.html.overrideAttrs (old: {
-              name = "sensorstack-documentation.pdf";
-              ENABLE_PDF_EXPORT = 1;
-              buildPhase = ''
-                mkdocs build
-                cp site/documentation.pdf $out
-              '';
-            });
+            html = python3Packages.callPackage ./build.nix { inherit (pkgs.python3Packages) python; };
           };
 
           apps = {

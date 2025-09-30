@@ -1,15 +1,14 @@
-site_name: Example Project
+site_name: stashsphere Documentation
 site_url: https://xxx
 repo_url: https://xxx
 repo_name: example/project
 edit_uri: edit/main/docs
-site_author: Jacek Galowicz
-copyright: Jacek Galowicz
+site_author: Maximilian Güntner
+copyright: Maximilian Güntner
 
 markdown_extensions:
   - admonition
   - meta
-  - plantuml_markdown
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
@@ -43,10 +42,10 @@ theme:
         name: Switch to light mode
 
 extra:
-  homepage: https://tfc.github.com/mkdocs-plantuml-c4
+  homepage: https://docs.stashsphere.com
 
-repo_url: https://github.com/tfc/mkdocs-plantuml-c4
-repo_name: tfc/mkdocs-plantuml-c4
+repo_url: https://github.com/stashsphere/docs
+repo_name: stashsphere/docs
 
 plugins:
   - search

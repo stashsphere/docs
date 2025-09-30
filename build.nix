@@ -1,9 +1,7 @@
 { lib
 , mkdocs
 , mkdocs-material
-, mkdocs-with-pdf
-, plantuml-markdown
-, python3
+, python
 , stdenv
 }:
 
@@ -19,9 +17,7 @@ stdenv.mkDerivation {
   nativeBuildInputs = [
     mkdocs
     mkdocs-material
-    mkdocs-with-pdf
-    plantuml-markdown
-    python3
+    python
   ];
 
   buildPhase = ''
