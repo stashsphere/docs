@@ -1,8 +1,7 @@
-site_name: stashsphere Documentation
-site_url: https://xxx
-repo_url: https://xxx
-repo_name: example/project
-edit_uri: edit/main/docs
+site_name: StashSphere Documentation
+site_url: https://docs.stashsphere.com
+repo_url: https://github.com/stashsphere/docs
+repo_name: stashsphere/docs
 site_author: Maximilian Güntner
 copyright: Maximilian Güntner
 
@@ -18,6 +17,8 @@ markdown_extensions:
 
 theme:
   name: material
+  logo: assets/stashsphere-logo.svg
+  favicon: assets/favicon.ico
   icon:
     repo: fontawesome/brands/github
   features:
@@ -31,21 +32,23 @@ theme:
     - toc.integrate
   palette:
     - scheme: default
-      primary: blue
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
-      primary: blue
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
 
 extra:
   homepage: https://docs.stashsphere.com
+extra_css:
+  - stylesheets/extra.css
 
-repo_url: https://github.com/stashsphere/docs
-repo_name: stashsphere/docs
 
 plugins:
   - search
