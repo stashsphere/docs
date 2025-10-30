@@ -4,15 +4,24 @@
     "words": [
       "mkdocs",
       "msql",
-      "JDBC"
+      "JDBC",
+      "StashSphere",
+      "stashsphere"
     ],
     "ignoreWords": [
-      "stashsphere",
       "struct",
       "puml",
       "devicons",
       "plantuml",
       "startuml",
-      "enduml"
+      "enduml",
+      "nixpkgs",
+      "colmena",
+      "Colmena",
+      "genkey",
+      "npins",
+      "pkgs",
+      "sslmode",
+      "letmein"
     ]
 }
