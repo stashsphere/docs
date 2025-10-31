@@ -21,7 +21,7 @@
         {
           packages = {
             default = config.packages.html;
-            html = python3Packages.callPackage ./build.nix { inherit (pkgs.python3Packages) python; };
+            html = python3Packages.callPackage ./nix/package.nix { inherit python3Packages; };
           };
 
           apps = {

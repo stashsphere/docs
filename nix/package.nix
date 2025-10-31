@@ -1,20 +1,18 @@
 { lib
-, mkdocs
-, mkdocs-material
-, python
+, python3Packages
 , stdenv
 }:
 
 stdenv.mkDerivation {
   name = "mkdocs-html";
 
-  src = lib.sourceByRegex ./. [
+  src = lib.sourceByRegex ../. [
     "^docs.*"
     "^templates.*"
     "mkdocs.yml"
   ];
 
-  nativeBuildInputs = [
+  nativeBuildInputs = with python3Packages; [
     mkdocs
     mkdocs-material
     python
