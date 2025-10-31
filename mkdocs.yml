@@ -44,11 +44,7 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
-extra:
-  homepage: https://docs.stashsphere.com
 extra_css:
   - stylesheets/extra.css
-
-
 plugins:
   - search
