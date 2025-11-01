@@ -19,3 +19,14 @@ Build the html pages for hosting.
 # local checkout
 nix build .#html
 ```
+
+## License
+
+- Content: CC-BY-SA 4.0 (see LICENSE)
+- Nix Code: MIT
+
+## Credits
+
+- @tfc for writing the mkdocs+nix template at
+  [https://github.com/tfc/mkdocs-plantuml-c4](https://github.com/tfc/mkdocs-plantuml-c4)
+  (MIT License)
