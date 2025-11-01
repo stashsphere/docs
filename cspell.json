@@ -22,6 +22,7 @@
       "npins",
       "pkgs",
       "sslmode",
-      "letmein"
+      "letmein",
+      "sqlboiler"
     ]
 }

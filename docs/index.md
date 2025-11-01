@@ -52,6 +52,13 @@ surely are already in touch.
 * Import and Export for easy inter-instance migration
 * Federation
 
+## Source Code / Repositories
+
+* Backend (golang, echo, sqlboiler): [github.com/stashsphere/backend](https://github.com/stashsphere/frontend)
+* Frontend (react, tailwind): [github.com/stashsphere/frontend](https://github.com/stashsphere/frontend)
+* [Landing Page](https://stashsphere.com) (astro): [github.com/stashsphere/landing-page](https://github.com/stashsphere/landing-page)
+* docs, this repo/page (mkdocs): [github.com/stashsphere/docs](https://github.com/stashsphere/docs)
+
 ## License
 
 StashSphere is licensed under the AGPLv3.
