@@ -17,6 +17,7 @@ markdown_extensions:
 
 theme:
   name: material
+  font: false
   logo: assets/stashsphere-logo.svg
   favicon: assets/favicon.ico
   icon:
@@ -48,7 +49,6 @@ extra_css:
   - stylesheets/extra.css
 plugins:
   - search
-
 nav:
   - About StashSphere: index.md
   - User Guide: user_guide.md
