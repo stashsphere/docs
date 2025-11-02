@@ -2,14 +2,14 @@
 
 ## Overview
 
-stashsphere allows you to create an inventory of your tools, supplies
+StashSphere allows you to create an inventory of your tools, supplies
 and materials.
 
 All these **things** can be added to one or many **lists**. **Things** and **Lists**
 can then be shared with other **users** on the same instance in defined levels
 of exposure, from completely *private* to *friends of friends*.
 
-stashsphere is free and open source software, built to protect your
+StashSphere is free and open source software, built to protect your
 privacy and ready to self-host.
 
 ## Philosophy
@@ -26,8 +26,8 @@ can find the right screws, nuts and tools for the job.
 However, once an item arrives at our home, it enters a world of personal order
 and usually vanishes from public life.
 We may be able to share an item with a friend once in a while, but it's often
-difficult to establish this process in a consistent or meaningful way.
-Stashsphere is here to help make that process easier—by giving you a smart,
+difficult to establish this process in a consistent way.
+StashSphere is here to help make that process easier—by giving you a smart,
 organized, and shareable space for everything you and your friends own.
 
 *Think of it as an online shop that contains all the things you and your

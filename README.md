@@ -1,7 +1,7 @@
-# Stashsphere Documentation
+# StashSphere Documentation
 
 This repository provides a nix flake that builds and serves the
-project documentation of *stashsphere* that is written in markdown
+project documentation of *StashSphere* that is written in markdown
 and generated as HTML by the mkdocs tool.
 
 ## Usage
