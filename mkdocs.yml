@@ -48,3 +48,10 @@ extra_css:
   - stylesheets/extra.css
 plugins:
   - search
+
+nav:
+  - About StashSphere: index.md
+  - User Guide: user_guide.md
+  - Hosting Guide: hosting_guide.md
+  - Config Value: config_values.md
+  - Imprint: https://stashsphere.com/imprint
