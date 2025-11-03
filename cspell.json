@@ -23,6 +23,10 @@
       "pkgs",
       "sslmode",
       "letmein",
-      "sqlboiler"
+      "sqlboiler",
+      "libmagic",
+      "libc",
+      "libmusl",
+      "SUIDSGID"
     ]
 }

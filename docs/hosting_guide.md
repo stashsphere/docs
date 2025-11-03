@@ -1,5 +1,89 @@
 # Hosting Guide
 
+## General
+
+This guide will use several domain names for example, we suggest to use
+a similar setup to avoid common problems such as serving the API from
+the same domain as the web application.
+
+- example.com - your main domain
+- stash.example.com - this is what users will navigate to in their browsers
+- api.stash.example.com - the API is served from here
+
+## Linux - Generic
+
+### Requirements Backend
+
+- libmagic / file
+- go version >= 1.22
+- libc (libmusl should work but not tested)
+
+### Requirements Frontend
+
+- pnpm
+- TypeScript
+
+### Building the Backend
+
+Build the backend binary with `go build -o stashsphere`, place resulting
+binary in a directory of your choice, e.g. `/usr/local/bin/stashsphere`.
+
+### Building the Frontend
+
+Build the frontend using `pnpm build`. The resulting web application is in `/dist`.
+Serve these files using a webserver.
+Create a new file named `config.json` in the web root with the following content:
+
+```json
+{
+  "apiHost":"https://api.stash.example.com"
+}
+```
+
+This file will be used by the frontend to determine which API is responsible
+for this instance.
+
+### Running
+
+- Create a new database and user for the application in a PostgreSQL instance.
+- Create config files for the application, see [Config Values](/config_values)
+  for more information.
+- Be sure to generate a new private key using `stashsphere genkey` and paste it
+  into the config.
+- Use `stashsphere migrate` to migrate the database.
+- Run the backend using `stashsphere serve`.
+
+StashSphere comes without TLS/SSL support, you may listen locally and
+use a reverse proxy for TLS/SSL.
+
+A systemd service unit may look like this
+
+```systemd
+[Unit]
+After=network.target postgresql.service
+
+[Service]
+CacheDirectory=stashsphere
+DynamicUser=true
+ExecStart=/usr/local/bin/backend serve --conf /etc/stashsphere/stashsphere-secrets.yaml --conf /etc/stashsphere/settings.yaml
+ExecStartPre=/usr/local/bin/backend migrate --conf /etc/stashsphere/stashsphere-secrets.yaml --conf /etc/stashsphere/settings.yaml
+MemoryDenyWriteExecute=true
+PrivateDevices=true
+ProtectSystem=strict
+Restart=always
+RestrictAddressFamilies=AF_INET
+RestrictAddressFamilies=AF_INET6
+RestrictAddressFamilies=AF_UNIX
+RestrictNamespaces=true
+RestrictSUIDSGID=true
+RuntimeDirectory=stashsphere
+StateDirectory=stashsphere
+User=stashsphere
+
+[Install]
+WantedBy=multi-user.target
+```
+
 ## NixOS
 
 ### Without flakes
