@@ -62,4 +62,4 @@ surely are already in touch.
 ## License
 
 StashSphere is licensed under the AGPLv3.
-The documentation is license under the CC-BY-SA 4.0
+The documentation is licensed under the CC-BY-SA 4.0
