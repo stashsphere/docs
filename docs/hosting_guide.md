@@ -65,8 +65,8 @@ After=network.target postgresql.service
 [Service]
 CacheDirectory=stashsphere
 DynamicUser=true
-ExecStart=/usr/local/bin/backend serve --conf /etc/stashsphere/stashsphere-secrets.yaml --conf /etc/stashsphere/settings.yaml
-ExecStartPre=/usr/local/bin/backend migrate --conf /etc/stashsphere/stashsphere-secrets.yaml --conf /etc/stashsphere/settings.yaml
+ExecStart=/usr/local/bin/stashsphere serve --conf /etc/stashsphere/stashsphere-secrets.yaml --conf /etc/stashsphere/settings.yaml
+ExecStartPre=/usr/local/bin/stashsphere migrate --conf /etc/stashsphere/stashsphere-secrets.yaml --conf /etc/stashsphere/settings.yaml
 MemoryDenyWriteExecute=true
 PrivateDevices=true
 ProtectSystem=strict
