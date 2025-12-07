@@ -1,3 +1,3 @@
 final: prev: {
-  stashsphereDocs = with final; final.callPackage ./package.nix { };
+  stashsphereDocs = final.callPackage ./package.nix { inherit (prev) stashsphere-openapi; };
 }
