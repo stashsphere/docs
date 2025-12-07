@@ -135,6 +135,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1763421233,
+        "narHash": "sha256-Stk9ZYRkGrnnpyJ4eqt9eQtdFWRRIvMxpNRf4sIegnw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "89c2b2330e733d6cdb5eae7b899326930c2c0648",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -161,7 +177,26 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
-        "pre-commit-hooks": "pre-commit-hooks"
+        "pre-commit-hooks": "pre-commit-hooks",
+        "stashsphere-backend": "stashsphere-backend"
+      }
+    },
+    "stashsphere-backend": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1765110030,
+        "narHash": "sha256-Td33/7dw5o0fA8kW5loGIRxCqj4E1bYlAMeUVvsXv8U=",
+        "owner": "stashsphere",
+        "repo": "backend",
+        "rev": "5908f328b3659adfeb59e9360e643a63c4bcd7b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stashsphere",
+        "repo": "backend",
+        "type": "github"
       }
     }
   },

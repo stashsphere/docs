@@ -1,3 +1,5 @@
 .pre-commit-config.yaml
 result
 .direnv
+docs/assets/openapi.json
+

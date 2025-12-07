@@ -4,9 +4,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    stashsphere-backend.url = "github:stashsphere/backend";
   };
 
-  outputs = inputs@{ flake-parts, ... }:
+  outputs =
+    inputs@{ flake-parts, stashsphere-backend, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
@@ -14,25 +16,36 @@
         "x86_64-darwin"
         "aarch64-darwin"
       ];
-      perSystem = { config, pkgs, system, ... }:
+      perSystem =
+        { config
+        , pkgs
+        , system
+        , ...
+        }:
         let
           inherit (pkgs) python3Packages;
+          stashsphere-openapi = stashsphere-backend.packages.${system}.default.doc;
         in
         {
           packages = {
             default = config.packages.html;
-            html = python3Packages.callPackage ./nix/package.nix { inherit python3Packages; };
+            html = python3Packages.callPackage ./nix/package.nix {
+              inherit python3Packages;
+              inherit stashsphere-openapi;
+            };
           };
 
           apps = {
             default = config.apps.serve-docs;
             serve-docs = {
               type = "app";
-              program = builtins.toString (pkgs.writeShellScript "serve-docs" ''
-                exec ${pkgs.python3}/bin/python3 -m http.server \
-                    --bind 127.0.0.1 \
-                    --directory ${config.packages.html}
-              '');
+              program = builtins.toString (
+                pkgs.writeShellScript "serve-docs" ''
+                  exec ${pkgs.python3}/bin/python3 -m http.server \
+                      --bind 127.0.0.1 \
+                      --directory ${config.packages.html}
+                ''
+              );
             };
           };
 
@@ -61,6 +74,7 @@
             inputsFrom = [ config.packages.html ];
             shellHook = ''
               ${config.checks.pre-commit-check.shellHook}
+              [ ! -f docs/assets/openapi.json ]] && cp ${stashsphere-openapi}/openapi.json docs/assets/openapi.json
             '';
           };
         };
