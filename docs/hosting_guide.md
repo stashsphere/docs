@@ -23,6 +23,11 @@ the same domain as the web application.
 - pnpm
 - TypeScript
 
+### Obtain the source
+
+The main repository is [github.com/stashsphere/stashsphere](https://github.com/stashsphere/stashsphere).
+Currently it is rolling release until version `1.0.0` aka first stable release.
+
 ### Building the Backend
 
 Build the backend binary with `go build -o stashsphere`, place resulting
@@ -105,7 +110,7 @@ and the module:
 ```nix
 {
     imports = [
-      (sources.stashsphere + "/nix/module.nix")
+      (sources.stashsphere + "/backend/nix/module.nix")
     ];
 }
 ```

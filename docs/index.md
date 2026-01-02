@@ -54,8 +54,8 @@ surely are already in touch.
 
 ## Source Code / Repositories
 
-* Backend (golang, echo, sqlboiler): [github.com/stashsphere/backend](https://github.com/stashsphere/frontend)
-* Frontend (react, tailwind): [github.com/stashsphere/frontend](https://github.com/stashsphere/frontend)
+* Backend (golang, echo, sqlboiler): [github.com/stashsphere/stashsphere/backend](https://github.com/stashsphere/stashsphere/tree/main/backend)
+* Frontend (react, tailwind): [github.com/stashsphere/stashsphere/frontend](https://github.com/stashsphere/stashsphere/tree/main/frontend)
 * [Landing Page](https://stashsphere.com) (astro): [github.com/stashsphere/landing-page](https://github.com/stashsphere/landing-page)
 * docs, this repo/page (mkdocs): [github.com/stashsphere/docs](https://github.com/stashsphere/docs)
 
