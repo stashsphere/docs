@@ -4,11 +4,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
-    stashsphere-backend.url = "github:stashsphere/backend";
+    stashsphere.url = "github:stashsphere/stashsphere";
   };
 
   outputs =
-    inputs@{ flake-parts, stashsphere-backend, ... }:
+    inputs@{ flake-parts, stashsphere, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
@@ -24,7 +24,7 @@
         }:
         let
           inherit (pkgs) python3Packages;
-          stashsphere-openapi = stashsphere-backend.packages.${system}.default.doc;
+          stashsphere-openapi = stashsphere.packages.${system}.backend.doc;
         in
         {
           packages = {

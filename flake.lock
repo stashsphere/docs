@@ -178,24 +178,24 @@
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
         "pre-commit-hooks": "pre-commit-hooks",
-        "stashsphere-backend": "stashsphere-backend"
+        "stashsphere": "stashsphere"
       }
     },
-    "stashsphere-backend": {
+    "stashsphere": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1765128612,
-        "narHash": "sha256-dgpBL+Aj72GW+6wBfddelL/EV//Sq2cNDgf94fNRyOU=",
+        "lastModified": 1767552624,
+        "narHash": "sha256-yfZGcyPgLC02yZkJZqEsM6DDhoUREWIJ8RQv++W5a5k=",
         "owner": "stashsphere",
-        "repo": "backend",
-        "rev": "9265ff8357f82bbdea165344b667e79999c0b575",
+        "repo": "stashsphere",
+        "rev": "3a3d140e4660f52225fa756bdc92f4dbb1adf8e5",
         "type": "github"
       },
       "original": {
         "owner": "stashsphere",
-        "repo": "backend",
+        "repo": "stashsphere",
         "type": "github"
       }
     }
