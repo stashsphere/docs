@@ -54,5 +54,6 @@ nav:
   - User Guide: user_guide.md
   - Hosting Guide: hosting_guide.md
   - Config Values: config_values.md
+  - Design: design.md
   - API: api.md
   - Imprint: https://stashsphere.com/imprint

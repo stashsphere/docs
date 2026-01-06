@@ -27,6 +27,7 @@
       "libmagic",
       "libc",
       "libmusl",
-      "SUIDSGID"
+      "SUIDSGID",
+      "Exif"
     ]
 }
