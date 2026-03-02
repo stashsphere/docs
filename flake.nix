@@ -74,7 +74,7 @@
             inputsFrom = [ config.packages.html ];
             shellHook = ''
               ${config.checks.pre-commit-check.shellHook}
-              [ ! -f docs/assets/openapi.json ]] && cp ${stashsphere-openapi}/openapi.json docs/assets/openapi.json
+              [[ ! -f docs/assets/openapi.json ]] && cp ${stashsphere-openapi}/openapi.json docs/assets/openapi.json
             '';
           };
         };

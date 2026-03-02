@@ -144,10 +144,11 @@ TODO
         sslmode = "disable";
       };
       domains = {
-        api = "stash.example.com";
+        cookieDomain = "stash.example.com";
         allowed = [ "https://api.stash.example.com" "https://stash.example.com" ];
       };
       frontendUrl = "https://stash.example.com";
+      baseUrl = "https://api.stash.example.com";
       instanceName = "StashSphere";
     };
     configFiles = ["/private/stashsphere-secrets.yaml"];
@@ -179,6 +180,78 @@ email:
   host: "mail.example.com"
   port: 587
 ```
+
+### Security
+
+StashSphere uses cookies for authentication. By default, the sensitive cookies are
+stored as [`Secure Cookies`](https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides/Cookies#secure).
+This is requires `https` which is strongly advised for production environments anyway.
+Of course in development scenarios this is usually not desired, you can can therefore
+disable as follows.
+
+```yaml
+auth:
+  disableSecureCookies: true
+```
+
+Furthermore most cookies are `http-only` to protect credentials leaking into
+the frontend.
+Note that all authentication cookies have their non-authenticating sibling
+that contain the same information (JWT) but do not authenticate the user,
+instead they are used by the frontend to determine the login status.
+
+### OpenID Connect
+
+OpenID Connect support can enabled by adding
+
+```yaml
+baseUrl: "https://api.stash.example.com"
+auth:
+  oidc:
+    enabled: true
+    providers:
+      - name: "dex";
+        display_name: "Dex";
+        issuer_url: "https://id.example.com/dex";
+        client_id: "StashSphere",
+        client_secret: "StashSecure",
+        scopes:
+          - "openid"
+          - "profile"
+          - "email"
+```
+
+Make sure that you set `baseURL` properly as this is used to construct
+the callback URI.
+
+You can have both internal accounts and external accounts (OIDC) at the same time.
+Should an external account with the same E-Mail address try to login to an existing
+internal account, the user will be additionally prompted for the internal password.
+This prevents account stealing by controlling an external account.
+
+Note that no invite logic is implemented for OIDC accounts, all users
+that have access to the application on the identity provider can create
+and account and login.
+
+### User Management
+
+User accounts are mostly self-managed, a user can
+
+- create an account
+- change the password (with knowledge of the current one)
+- delete the account
+
+Passwords resets via E-Mail are not implemented yet.
+
+Admins can use the CLI command `stashsphere resetpassword` to force-reset a password
+of an user and furthermore `stashsphere delete-user` to delete an account.
+
+### Account Deletion
+
+Account deletion is not immediate in order to prevent accidental actions. Instead,
+the account is marked and is purged after a configurable amount of time (`userDeletion.gracePeriodMinutes`).
+
+Accounts are deleted completely, all entities that belonged to the user are purged.
 
 ### Colmena example
 

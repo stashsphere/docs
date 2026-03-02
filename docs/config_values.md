@@ -12,7 +12,7 @@ backend serve --conf config.yaml --conf secrets.yaml
 
 This is an example config
 
-*config.yaml*:
+_config.yaml_:
 
 ```yaml
 database:
@@ -27,15 +27,21 @@ invites:
   enabled: false
 domains:
   allowed:
-  - http://stash.example.com
-  - http://api.stash.example.com
-  own:
-  - http://stash.example.com
-frontendUrl:  "https://stash.example.com"
+    - https://stash.example.com
+    - https://api.stash.example.com
+  cookieDomain: stash.example.com
+frontendUrl: "https://stash.example.com"
+baseUrl: "https://api.stash.example.com"
 instanceName: "Example StashSphere"
+auth:
+  disableSecureCookies: true
+  oidc:
+    enabled: false
+userDeletion:
+  gracePeriodMinutes: 180
 ```
 
-*secrets.yaml*:
+_secrets.yaml_:
 
 ```yaml
 auth:
@@ -52,7 +58,7 @@ email:
 ## auth.privateKey
 
 This key is used to sign JWT tokens to be served as cookies.
-A new key can be generated using the command `backend genkey`.
+A new key can be generated using the command `stashsphere genkey`.
 
 ## Image Store Path
 
@@ -60,3 +66,48 @@ You may omit `image.path` and `image.cachePath` which will result in a `image_st
 and `image_cache` directory created in the working directory of StashSphere.
 Furthermore StashSphere will honor `STATE_DIRECTORY` and `CACHE_DIRECTORY`
 environment variables.
+
+## URL Configuration
+
+StashSphere uses multiple URLs for different purposes.
+
+### frontendUrl
+
+The URL where users access the web interface in their browser.
+
+**Used for**: Email links
+
+**Example**: `"https://stash.example.com"`
+
+### baseUrl
+
+The public URL where the backend API is accessible.
+
+**Used for**: OIDC callback URLs (`{baseUrl}/api/auth/oidc/{provider}/callback`)
+
+**Example**: `"https://api.stash.example.com"`
+
+### domains.allowed
+
+Array of origins allowed to make CORS requests to the API. Include both frontend
+and API URLs.
+
+**Example**:
+
+```yaml
+domains:
+  allowed:
+    - "https://stash.example.com"
+    - "https://api.stash.example.com"
+```
+
+### domains.api
+
+deprecated, see `domains.cookieDomain`
+
+### domains.cookieDomain
+
+Domain used for setting authentication cookies. For split subdomains (e.g., stash.example.com
+and api.stash.example.com), use the parent domain to allow cookie sharing.
+
+Example: `"stash.example.com"` (not `"api.stash.example.com"`)

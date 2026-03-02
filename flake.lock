@@ -69,6 +69,27 @@
         "type": "github"
       }
     },
+    "nix-github-actions": {
+      "inputs": {
+        "nixpkgs": [
+          "stashsphere",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737420293,
+        "narHash": "sha256-F1G5ifvqTpJq7fdkT34e/Jy9VCyzd5XfJ9TO8fHhJWE=",
+        "owner": "nix-community",
+        "repo": "nix-github-actions",
+        "rev": "f4158fa080ef4503c8f4c820967d946c2af31ec9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-github-actions",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1759070547,
@@ -183,14 +204,15 @@
     },
     "stashsphere": {
       "inputs": {
+        "nix-github-actions": "nix-github-actions",
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1767552624,
-        "narHash": "sha256-yfZGcyPgLC02yZkJZqEsM6DDhoUREWIJ8RQv++W5a5k=",
+        "lastModified": 1772569003,
+        "narHash": "sha256-d65TjeuXCy/5awhlNtIT9SUk4wypb7vDDWdcjDdIsF4=",
         "owner": "stashsphere",
         "repo": "stashsphere",
-        "rev": "3a3d140e4660f52225fa756bdc92f4dbb1adf8e5",
+        "rev": "6b6dbe1ec867b466a83bae58d09a6c99eb611766",
         "type": "github"
       },
       "original": {

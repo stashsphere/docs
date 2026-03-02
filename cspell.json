@@ -6,7 +6,8 @@
       "msql",
       "JDBC",
       "StashSphere",
-      "stashsphere"
+      "stashsphere",
+      "resetpassword"
     ],
     "ignoreWords": [
       "struct",
