@@ -86,6 +86,36 @@ Note that no invite logic is implemented for OIDC accounts, all users
 that have access to the application on the identity provider can create
 and account and login.
 
+#### Auth0
+
+Enter the following URIs in the Auth0 management application:
+
+**Application Login URI**: `https://stash.example.com/user/login`
+
+**Allowed Callback URI**: `https://api.stash.example.com/api/auth/oidc/auth0/callback`
+
+**Allowed Web Origins**: `https://stash.example.com`
+
+In the config, add the following values:
+
+```yaml
+auth:
+  oidc:
+    enabled: true
+    providers:
+      - name: "auth0"
+        display_name: "Auth0"
+        issuer_url: "https://your-tentant.auth0.com/"
+        client_id: "your_client_id"
+        client_secret: "your_client_secret"
+        scopes:
+          - "openid"
+          - "profile"
+          - "email"
+```
+
+Be sure to include the trailing `/` in the `issuer_url`.
+
 ### User Management
 
 User accounts are mostly self-managed, a user can
