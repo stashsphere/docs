@@ -208,11 +208,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1772569003,
-        "narHash": "sha256-d65TjeuXCy/5awhlNtIT9SUk4wypb7vDDWdcjDdIsF4=",
+        "lastModified": 1773864385,
+        "narHash": "sha256-pPVaKpJ2IljD23yidR981Rjblv675OnkuWYK2wrtoXc=",
         "owner": "stashsphere",
         "repo": "stashsphere",
-        "rev": "6b6dbe1ec867b466a83bae58d09a6c99eb611766",
+        "rev": "d8e5d2d9fd28eb9ce28f0749073df39df9d2fde8",
         "type": "github"
       },
       "original": {
