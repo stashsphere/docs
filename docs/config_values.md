@@ -33,6 +33,12 @@ domains:
 frontendUrl: "https://stash.example.com"
 baseUrl: "https://api.stash.example.com"
 instanceName: "Example StashSphere"
+tmpPath: "/var/lib/stashsphere/tmp"
+export:
+    storePath: "/var/lib/stashsphere/export"
+    retentionDuration: "240h"
+import:
+    maxUploadMb: 1024
 auth:
   disableSecureCookies: true
   oidc:
@@ -60,12 +66,35 @@ email:
 This key is used to sign JWT tokens to be served as cookies.
 A new key can be generated using the command `stashsphere genkey`.
 
-## Image Store Path
+## Storage
+
+### Image Store Path
 
 You may omit `image.path` and `image.cachePath` which will result in a `image_store`
 and `image_cache` directory created in the working directory of StashSphere.
 Furthermore StashSphere will honor `STATE_DIRECTORY` and `CACHE_DIRECTORY`
 environment variables.
+
+### Export Path
+
+Exported collections will be stored in `export.storePath` for `retentionDuration`.
+This path will also take `STATE_DIRECTORY` into account when omitted.
+
+### Temporary Files
+
+StashSphere will create several temporary files for user uploads and exports.
+They will be placed in `tmpPath`. Here the default points to `/tmp`, or to
+`STATE_DIRECTORY` should it be provided. Placing it in the `STATE_DIRECTORY`
+prevents larger import file uploads from filling the system memory (tmpfs).
+
+### Summary
+
+| Config Key | Env Var Override | Default (with `STATE_DIRECTORY`) | Default (without) |
+| --- | --- | --- | --- |
+| `image.path` | `STASHSPHERE_IMAGE__PATH` | `$STATE_DIRECTORY/image_store` | `./image_store` |
+| `image.cachePath` | `STASHSPHERE_IMAGE__CACHE_PATH` | `$CACHE_DIRECTORY/image_cache` | `./image_cache` |
+| `tmpPath` | `STASHSPHERE_TMP_PATH` | `$STATE_DIRECTORY/tmp` | `$TMPDIR/stashsphere` |
+| `export.storePath` | `STASHSPHERE_EXPORT__STORE_PATH` | `$STATE_DIRECTORY/export_store` | `./export_store` |
 
 ## URL Configuration
 

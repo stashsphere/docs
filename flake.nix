@@ -65,6 +65,7 @@
               settings.markdownlint.config = {
                 MD013 = {
                   code_block_line_length = 120;
+                  tables = false;
                 };
               };
             };

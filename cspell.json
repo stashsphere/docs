@@ -7,7 +7,8 @@
       "JDBC",
       "StashSphere",
       "stashsphere",
-      "resetpassword"
+      "resetpassword",
+      "tmpfs"
     ],
     "ignoreWords": [
       "struct",
