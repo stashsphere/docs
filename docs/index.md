@@ -46,10 +46,10 @@ surely are already in touch.
 * Fine-grained sharing system
 * Notifications
 * Full Text Search
+* Import and Export for easy inter-instance migration
 
 ## Roadmap
 
-* Import and Export for easy inter-instance migration
 * Federation
 
 ## Source Code / Repositories
